@@ -1,8 +1,14 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\V1\ArticleController;
+use App\Http\Controllers\API\V1\AuthorController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return $request->user();
+// V1
+Route::prefix('V1')->middleware('auth:sanctum')->group(function () {
+    // Articles 
+    Route::apiResource('/articles' , ArticleController::class);
+
+    // Authors 
+    Route::get('/authors/{user}' , [AuthorController::class , 'show'])->name('authors.show');
 });
