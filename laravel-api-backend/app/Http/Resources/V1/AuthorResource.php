@@ -8,6 +8,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class AuthorResource extends JsonResource
 {
+    public static $wrap = 'author';
+
     public function toArray(Request $request): array
     {
         return [

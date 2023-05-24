@@ -8,6 +8,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class ArticleResource extends JsonResource
 {
+    public static $wrap = 'articles';
+    
     public function toArray(Request $request): array
     {
         return [
@@ -35,6 +37,6 @@ class ArticleResource extends JsonResource
 
     public function withResponse(Request $request, JsonResponse $response)
     {
-        $this->header('Accept' , 'application/json');
+        // $this->header('Accept' , 'application/json');
     }
 }
