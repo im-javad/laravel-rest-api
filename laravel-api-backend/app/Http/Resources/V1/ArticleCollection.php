@@ -24,7 +24,7 @@ class ArticleCollection extends ResourceCollection
 
     public function withResponse(Request $request, JsonResponse $response)
     {
-        $this->header('Accept' , 'applicatiom/json');
+        // $this->header('Accept' , 'applicatiom/json');
         $request->header('Version' , '1.0.0');
     }
 }

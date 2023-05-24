@@ -27,11 +27,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
 
-        // Get articles either by ID or Slug 
-        Route::bind('article' , function($value){
-            return \App\Models\Article::where('id' , $value)
-                ->orWhere('slug' , $value)
-                ->firstOrFail();
-        });
+        // Get articles either by ID or Slug -> second method 
+        // Route::bind('article' , function($value){
+        //     return \App\Models\Article::where('id' , $value)
+        //         ->orWhere('slug' , $value)
+        //         ->firstOrFail();
+        // });
     }
 }
