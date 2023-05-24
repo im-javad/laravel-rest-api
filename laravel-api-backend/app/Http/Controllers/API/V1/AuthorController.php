@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
+use App\Http\Resources\V1\AuthorResource;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -27,9 +28,11 @@ class AuthorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Article $article)
+    public function show(User $user)
     {
-        //
+        return (new AuthorResource($user))
+            ->response()
+            ->setStatusCode(200);
     }
 
     /**
